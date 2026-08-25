@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main(){
+	int choice,flag=1;
+	printf("Welcome to Prisha's Coffee Shop");
+	printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+	printf("\nMenu:");
+	printf("\n1.Coffee");
+	printf("\n2.Tea");
+	printf("\n3.Cold drink");
+	
+	
+	do{
+		printf("\nKindly enter your choice:");
+	    scanf("%d",&choice);
+	
+		switch(choice){
+		case 1:
+			printf("Here's your Coffee! Good day :)");
+			break;
+		case 2:
+			printf("Here's your Tea! Good day :)");
+			break;
+		case 3:
+			printf("Here's your Cold drink! Good day :)");
+			break;
+		default:
+			printf("Invalid choice!");
+	    }
+	    printf("\nDo you wish to order again? (Enter 1 for yes and 0 for no):");
+	    scanf("%d",&flag);
+	}while(flag==1);
+	printf("Visit again!");	
+	return 0;
+}	
