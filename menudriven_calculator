@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main(){
+	int choice,flag=1,num;
+	printf("Menu:");
+	printf("\n1.Check even/odd");
+	printf("\n2.Check positive/negative");
+	printf("\n3.Square");
+	printf("\n4.Cube");
+	
+	printf("\nKindly enter a number:");
+	scanf("%d",&num);
+	do{
+		printf("\nKindly enter your choice:");
+	    scanf("%d",&choice);
+	
+		switch(choice){
+		case 1:
+			if(num%2==0){
+				printf("Even number:");
+			}
+			else{
+				printf("Odd number:");
+			}
+			break;
+		case 2:
+			if(num>0){
+				printf("Positive number:");
+			}
+			else{
+				printf("Negative number:");
+			}
+			break;
+		case 3:
+			printf("Square of the number :%d", num*num);
+			break;
+		case 4:
+			printf("Cube of the number :%d", num*num*num);
+			break;
+		default:
+			printf("Invalid choice!");
+	    }
+	    printf("\nDo you wish to continue? (Enter 1 for yes and 0 for no):");
+	    scanf("%d",&flag);
+	}while(flag==1);
+	printf("Thank you!");	
+	return 0;
+}	
