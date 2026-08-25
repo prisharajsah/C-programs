@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+struct Employee{
+	int id;
+	char name[50];
+	float salary;
+};
+
+int main(){
+	struct Employee emp[100];
+	int n,i,highest;
+	
+	float total=0;
+	
+	printf("Enter number of employees: ");
+	scanf("%d",&n);
+	
+	for(i=0;i<n;i++){
+		printf("\nEnter Employee details");
+		printf("\n~~~~~~~~~~~~~~~~~~~~~~~~");
+		printf("\nEnter Employee ID:");
+		scanf("%d",&emp[i].id);
+		printf("\nEnter Employee name:");
+		scanf("%s",&emp[i].name);
+		printf("\nEnter Employee salary:");
+		scanf("%f",&emp[i].salary);			
+	}
+	
+	highest=0;
+	for(i=0;i<n;i++){
+		total+=emp[i].salary;
+		
+		if(emp[i].salary>emp[highest].salary){
+			highest=i;
+		}
+	}
+
+	printf("\nAverage Salary of all employees: %.2f", total/n);
+	
+	
+	printf("\n\nEmployee with highest salary: ");
+	printf("\nEmployee ID: %d",emp[highest].id);
+	printf("\nEmployee name: %s",emp[highest].name);
+	printf("\nEmployee salary: %.2f",emp[highest].salary);
+	return 0;
+}
