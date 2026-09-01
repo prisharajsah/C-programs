@@ -1,0 +1,42 @@
+#include <stdio.h>
+#define max 3
+
+int stack[3];
+int top=-1;
+
+void push(){
+	if(top==max-1){
+		printf("Stack is full");
+	}
+	else{
+		top++;
+		printf("Enter stack value: ");
+		scanf("%d",&stack[top]);
+	}
+}
+
+
+int main(){
+	int choice,flag=1;
+	
+	do{
+		printf("Kindly enter your choice: ");
+	    scanf("%d",&choice);
+	
+		switch(choice){
+		case 1:
+			push();
+			break;
+		case 2:
+			flag=0;
+			printf("Terminating program");
+			break;
+		default:
+			printf("Invalid choice");
+			break;
+	    }
+	    printf("\nDo you wish to continue?(Enter 1 for yes and 0 for no): ");
+	    scanf("%d",&flag);
+	}while(flag==1);
+	return 0;
+}
