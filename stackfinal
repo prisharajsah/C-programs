@@ -1,0 +1,72 @@
+#include <stdio.h>
+#define max 3
+
+int stack[3];
+int top=-1;
+
+void push(){
+	if(top==max-1){
+		printf("Stack is full");
+	}
+	else{
+		top++;
+		printf("Enter stack value: ");
+		scanf("%d",&stack[top]);
+	}
+}
+
+void pop(){
+	if(top==-1){
+		printf("Stack is empty");
+	}
+	else{
+		printf("Popped item: %d",stack[top]);
+		top--;
+	}
+}
+
+void display(){
+	if(top==-1){
+		printf("Stack is empty");
+	}
+	else{
+		printf("Stack elements are: ");
+		for(int i=top;i>=0;i--){
+		  printf("%d ", stack[i]);	
+		}
+	}
+}
+
+
+int main(){
+	int choice;
+	printf("Welcome!");
+	printf("\n1.Push");
+	printf("\n2.Pop");
+	printf("\n3.Display");
+	printf("\n4.Exit");
+	
+	do{
+		printf("\nKindly enter your choice: ");
+	    scanf("%d",&choice);
+	
+		switch(choice){
+		case 1:
+			push();
+			break;
+		case 2:
+			pop();
+			break;
+		case 3:
+			display();
+			break;
+		case 4:
+			printf("Terminating, Thankyou!");
+			break;
+		default:
+			printf("Invalid choice");
+			break;
+	    }
+	}while(choice!=4);
+	return 0;
+}
