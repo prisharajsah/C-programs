@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+void push(){
+	printf("Implementing push");
+}
+
+
+int main(){
+	int choice,flag=1;
+	
+	do{
+		printf("Kindly enter your choice: ");
+	    scanf("%d",&choice);
+	
+		switch(choice){
+		case 1:
+			push();
+			break;
+		case 2:
+			flag=0;
+			printf("Terminating program");
+			break;
+		default:
+			printf("Invalid choice");
+			break;
+	    }
+	    printf("\nDo you wish to continue?(Enter 1 for yes and 0 for no): ");
+	    scanf("%d",&flag);
+	}while(flag==1);
+	return 0;
+}
