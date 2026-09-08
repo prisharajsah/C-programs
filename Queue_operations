@@ -1,0 +1,87 @@
+#include <stdio.h>
+#define max 3
+
+int queue[3];
+int front=-1;
+int rear=-1;
+
+void insert(){
+	int value;
+	if(rear==max-1){
+		printf("Queue is full\n");
+	}
+	else{
+		printf("Enter queue value: ");
+		scanf("%d",&value);
+		
+		if(front==-1){
+			front=0;
+		}
+		rear++;
+		queue[rear]=value;
+		
+		printf("%d inserted\n",value);
+	}
+}
+
+void deletion(){
+	if(front==-1 || front>rear){
+		printf("Queue is empty\n");
+	}
+	else{
+		printf("%d deleted\n",queue[front]);
+		front++;
+		
+		if(front>rear){
+			front=-1;
+			rear=-1;
+		}
+	}
+}
+
+void display(){
+	int i;
+	if(front==-1){
+		printf("Queue is empty\n");
+	}
+	else{
+		printf("Queue elements are: ");
+		for(int i=front;i<=rear;i++){
+		  printf("%d ", queue[i]);	
+		}
+	}
+}
+
+
+int main(){
+	int choice;
+	printf("Welcome!");
+	printf("\n1.Insert");
+	printf("\n2.Deletion");
+	printf("\n3.Display");
+	printf("\n4.Exit");
+	
+	do{
+		printf("\nKindly enter your choice: ");
+	    scanf("%d",&choice);
+	
+		switch(choice){
+		case 1:
+			insert();
+			break;
+		case 2:
+			deletion();
+			break;
+		case 3:
+			display();
+			break;
+		case 4:
+			printf("Terminating, Thankyou!");
+			break;
+		default:
+			printf("Invalid choice");
+			break;
+	    }
+	}while(choice!=4);
+	return 0;
+}
