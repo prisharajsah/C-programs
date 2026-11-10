@@ -1,0 +1,97 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node{
+	int data;
+	struct node *left;
+	struct node *right;
+}node;
+
+node *allocate(){
+	return (node*)malloc(sizeof(node));
+}
+
+node *head = NULL;
+
+node *search(node *t,int x){	
+	if(t==NULL){
+		printf("Element not found");
+		return NULL;
+	}
+	else if(x < t->data){
+		return search(t->left,x);
+	}
+	else if(x > t->data){
+		return search(t->right,x);
+	}	
+	else{
+		printf("Element found");
+		return t;
+	}
+}
+
+node *insert(node *t,int x){
+	 if(t == NULL){
+	 	node *p = allocate();
+	 	p->data = x;
+	 	p->left = NULL;
+	 	p->right = NULL;
+	 	printf("Element inserted");
+	 	return p;
+	 }
+	 if(x < t->data){
+	 	t->left = insert(t->left,x);
+	 }
+	 else{
+	 	t->right = insert(t->right,x);
+	 }
+	 return t;
+}
+
+void  inorder(node *t){
+	if (t!=NULL){
+		inorder(t->left);
+		printf("%d ",t->data);
+		inorder(t->right);
+	}
+}
+
+int main(){
+	int choice,x;
+	printf("Welcome!");
+	printf("\n1.Search element in BST");
+	printf("\n2.Insert element in BST");
+	printf("\n3.Inorder printing of BST");
+	printf("\n4.Exit");
+	
+	do{
+		printf("\nKindly enter your choice: ");
+	    scanf("%d",&choice);
+	
+		switch(choice){
+		case 1:
+			printf("Enter element to search: ");
+	        scanf("%d",&x);
+			search(head,x);
+			printf("\n");
+			break;
+		case 2:
+			printf("Enter element to insert: ");
+	        scanf("%d",&x);
+			head=insert(head,x);
+			printf("\n");
+			break;
+		case 3:
+			inorder(head);
+			printf("\n");
+			break;
+		case 4:
+			printf("Terminating, Thankyou!");
+			break;		
+		default:
+			printf("Invalid choice");
+			break;
+	    }
+	}while(choice!=4);
+	return 0;
+}
