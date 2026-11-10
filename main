@@ -1,0 +1,63 @@
+
+int main()
+{
+    int choice, x;
+    node *result;
+
+    printf("Welcome!");
+    printf("\n1. Search element in BST");
+    printf("\n2. Insert element in BST");
+    printf("\n3. Inorder printing of BST");
+    printf("\n4. Exit");
+
+    do
+    {
+        printf("\nKindly enter your choice: ");
+        scanf("%d", &choice);
+
+        switch(choice)
+        {
+            case 1:
+                printf("Enter element to search: ");
+                scanf("%d", &x);
+
+                result = search(head, x);
+
+                if (result == NULL)
+                {
+                    printf("Element not found");
+                }
+                else
+                {
+                    printf("Element found");
+                }
+
+                break;
+
+            case 2:
+                printf("Enter element to insert: ");
+                scanf("%d", &x);
+
+                head = insert(head, x);
+
+                printf("Element inserted");
+                break;
+
+            case 3:
+                printf("Inorder printing: ");
+                inorder(head);
+                break;
+
+            case 4:
+                printf("Terminating. Thankyou!");
+                break;
+
+            default:
+                printf("Invalid choice");
+                break;
+        }
+
+    } while(choice != 4);
+
+    return 0;
+}
